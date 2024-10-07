@@ -10,7 +10,9 @@ public class RestClientForWeatherAppApplication {
 	public static void main(String[] args) {
 		MeasurementRestClient measurementRestClient = new MeasurementRestClient();
 		SpringApplication.run(RestClientForWeatherAppApplication.class, args);
-		measurementRestClient.postMeasurement();
+		for (int i = 0; i < 500; i++) {
+			System.out.println(i);
+			measurementRestClient.postMeasurement();
+		}
 	}
-
 }

@@ -1,5 +1,6 @@
 package ru.merkulova.RestClientForWeatherApp.clients;
 
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +14,10 @@ import java.util.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 public class MeasurementRestClient {
-    @Autowired
-    private Sensor sensor;
 
     public void postMeasurement() {
         RestClient restClient = RestClient.create();
-        Measurement measurement = new Measurement(temperature(), rain(),);
+        Measurement measurement = new Measurement(temperature(), rain(), new Sensor(sensorType()));
         ResponseEntity<Void> responseAddMeasurement = restClient.post()
                 .uri("http://localhost:8080/measurements/add")
                 .contentType(APPLICATION_JSON)
@@ -57,9 +56,12 @@ public class MeasurementRestClient {
     public boolean rain() {
         return new Random().nextBoolean();
     }
-    public Sensor sensorType() {
-        int k = SensorsEnum.values().length;
-        return new Sensor(SensorsEnum.values(new Random().nextInt(k)));
+    public String sensorType (){
+        Random random = new Random();
+        SensorsEnum[] values = SensorsEnum.values();
+        int size=values.length;
+        String sensorRandom = String.valueOf(values[random.nextInt(size)]);
+        return sensorRandom;
         }
     }
-}
+
