@@ -1,12 +1,10 @@
 package ru.merkulova.RestClientForWeatherApp.clients;
 
-import lombok.NonNull;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClient;
 import ru.merkulova.RestClientForWeatherApp.models.Measurement;
+import ru.merkulova.RestClientForWeatherApp.models.MeasurementsResponse;
 import ru.merkulova.RestClientForWeatherApp.models.Sensor;
 import ru.merkulova.RestClientForWeatherApp.util.NotFoundException;
 import ru.merkulova.RestClientForWeatherApp.util.SensorsEnum;
@@ -31,13 +29,15 @@ public class MeasurementRestClient {
                 .toBodilessEntity();
         System.out.println("Measurement added: " + measurement);
     }
-    public void getRequestForMeasurements () {
+    public List<Measurement> getRequestForMeasurements () {
         RestClient restClient = RestClient.create();
-        List <Measurement> measurements = restClient.get()
+        MeasurementsResponse measurements = restClient.get()
                 .uri("http://localhost:8080/measurements")
                 .retrieve()
-                .body(new ParameterizedTypeReference<List<Measurement>>() {});
+                .body(MeasurementsResponse.class);
         System.out.println(measurements);
+        if (measurements.getMeasurements().isEmpty()) {return  Collections.emptyList();}
+        return measurements.getMeasurements();
     }
 
     public void getCountRainyDays () {
