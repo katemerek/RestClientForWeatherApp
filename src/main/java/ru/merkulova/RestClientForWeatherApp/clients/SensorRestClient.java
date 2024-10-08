@@ -19,7 +19,7 @@ public class SensorRestClient {
                 .body(sensor)
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (request, response) -> {
-                    throw new NotFoundException(response.getStatusCode(), response.getHeaders());
+                    throw new NotFoundException(response.getStatusCode(), response.getHeaders(), "Error posting new sensor");
                 })
                 .toBodilessEntity();
         System.out.println(responseSensor.getStatusCode());

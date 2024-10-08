@@ -3,10 +3,12 @@ package ru.merkulova.RestClientForWeatherApp.clients;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClient;
 import ru.merkulova.RestClientForWeatherApp.models.Measurement;
 import ru.merkulova.RestClientForWeatherApp.models.Sensor;
+import ru.merkulova.RestClientForWeatherApp.util.NotFoundException;
 import ru.merkulova.RestClientForWeatherApp.util.SensorsEnum;
 
 import java.util.*;
@@ -23,9 +25,9 @@ public class MeasurementRestClient {
                 .contentType(APPLICATION_JSON)
                 .body(measurement)
                 .retrieve()
-//                .onStatus(HttpStatusCode::is4xxClientError, (request, response) -> {
-//                    throw new NotFoundException(response.getStatusCode(), response.getHeaders());
-//                })
+                .onStatus(HttpStatusCode::isError, (request, response) -> {
+                    throw new NotFoundException(response.getStatusCode(), response.getHeaders(), "Error posting new measurement");
+                })
                 .toBodilessEntity();
         System.out.println("Measurement added: " + measurement);
     }
