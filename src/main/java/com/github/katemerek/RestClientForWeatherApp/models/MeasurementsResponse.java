@@ -1,4 +1,4 @@
-package ru.merkulova.RestClientForWeatherApp.models;
+package com.github.katemerek.RestClientForWeatherApp.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

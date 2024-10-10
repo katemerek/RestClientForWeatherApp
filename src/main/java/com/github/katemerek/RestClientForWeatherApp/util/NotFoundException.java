@@ -1,4 +1,4 @@
-package ru.merkulova.RestClientForWeatherApp.util;
+package com.github.katemerek.RestClientForWeatherApp.util;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;

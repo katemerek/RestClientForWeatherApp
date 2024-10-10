@@ -1,10 +1,11 @@
-package ru.merkulova.RestClientForWeatherApp.util;
+package com.github.katemerek.RestClientForWeatherApp.util;
 
+import com.github.katemerek.RestClientForWeatherApp.clients.MeasurementRestClient;
+import com.github.katemerek.RestClientForWeatherApp.models.Measurement;
 import org.knowm.xchart.QuickChart;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
-import ru.merkulova.RestClientForWeatherApp.clients.MeasurementRestClient;
-import ru.merkulova.RestClientForWeatherApp.models.Measurement;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

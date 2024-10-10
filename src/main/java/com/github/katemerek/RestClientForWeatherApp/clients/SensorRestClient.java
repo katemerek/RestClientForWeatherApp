@@ -1,10 +1,10 @@
-package ru.merkulova.RestClientForWeatherApp.clients;
+package com.github.katemerek.RestClientForWeatherApp.clients;
 
+import com.github.katemerek.RestClientForWeatherApp.models.Sensor;
+import com.github.katemerek.RestClientForWeatherApp.util.NotFoundException;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClient;
-import ru.merkulova.RestClientForWeatherApp.models.Sensor;
-import ru.merkulova.RestClientForWeatherApp.util.NotFoundException;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 

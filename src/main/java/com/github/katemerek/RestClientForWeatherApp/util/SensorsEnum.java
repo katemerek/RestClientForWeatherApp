@@ -1,4 +1,4 @@
-package ru.merkulova.RestClientForWeatherApp.util;
+package com.github.katemerek.RestClientForWeatherApp.util;
 
 public enum SensorsEnum {
     sensor_alfa,

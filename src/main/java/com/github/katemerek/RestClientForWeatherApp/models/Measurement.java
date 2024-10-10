@@ -1,6 +1,5 @@
-package ru.merkulova.RestClientForWeatherApp.models;
+package com.github.katemerek.RestClientForWeatherApp.models;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
