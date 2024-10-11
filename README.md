@@ -20,3 +20,5 @@ Sensor sensor = new Sensor("sensor_name");
 - air temperature (value, double),
 - is it raining outside (raining),
 - name of the sensor that recorded the measurement (sensor)
+
+This sentence for review.
