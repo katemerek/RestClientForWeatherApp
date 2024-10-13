@@ -12,7 +12,7 @@ public class SensorRestClient {
 
     public void postNewSensor() {
         RestClient restClient = RestClient.create();
-        Sensor sensor = new Sensor("sensor_epsilon");
+        Sensor sensor = new Sensor("sensor_psi");
         ResponseEntity<Void> responseSensor = restClient.post()
                 .uri("http://localhost:8080/sensors/registration")
                 .contentType(APPLICATION_JSON)
