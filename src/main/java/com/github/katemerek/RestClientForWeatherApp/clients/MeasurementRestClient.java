@@ -30,9 +30,9 @@ public class MeasurementRestClient {
         System.out.println("Measurement added: " + measurement);
     }
 
-    public void postMeasurement() {
+    public static void postMeasurement() {
         RestClient restClient = RestClient.create();
-        Measurement measurement = new Measurement(22.5, true, new Sensor("sensor_alfa"));
+        Measurement measurement = new Measurement(0.00, true, new Sensor("sensor_name"));
         ResponseEntity<Void> responseAddMeasurement = restClient.post()
                 .uri("http://localhost:8080/measurements/add")
                 .contentType(APPLICATION_JSON)
