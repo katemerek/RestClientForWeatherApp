@@ -10,9 +10,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 public class SensorRestClient {
 
-    public void postNewSensor() {
+    public static void postNewSensor() {
         RestClient restClient = RestClient.create();
-        Sensor sensor = new Sensor("sensor_epsilon");
+        Sensor sensor = new Sensor("sensor_name");
         ResponseEntity<Void> responseSensor = restClient.post()
                 .uri("http://localhost:8080/sensors/registration")
                 .contentType(APPLICATION_JSON)
